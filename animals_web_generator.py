@@ -20,13 +20,15 @@ for entry in animals:
     animal_type = entry.get("characteristics", {}).get("type")
 
     if name:
-        print(f"Name: {name}")
+       output +=f"Name: {name}\n"
     if diet:
-        print(f"Diet: {diet}")
+       output +=f"Diet: {diet}\n"
     if locations and len(locations) > 0:
-        print(f"Location: {locations[0]}")
+       output +=f"Location: {locations[0]}\n"
     if animal_type:
-        print(f"Type: {animal_type}")
+       output +=f"Type: {animal_type}\n"
 
-    print("-" * 20)  # Trenner für Übersicht
+template = template.replace("__REPLACE_ANIMALS_INFO__", output)
+
+
 
