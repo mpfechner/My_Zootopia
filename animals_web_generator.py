@@ -24,14 +24,16 @@ for entry in animals:
     locations = entry.get("locations")
     animal_type = entry.get("characteristics", {}).get("type")
 
+    output += '<li class="cards__item">'
     if name:
-       output +=f"Name: {name}\n"
+       output +=f"Name: {name}<br/>"
     if diet:
-       output +=f"Diet: {diet}\n"
+       output +=f"Diet: {diet}<br/>"
     if locations and len(locations) > 0:
-       output +=f"Location: {locations[0]}\n"
+       output +=f"Location: {locations[0]}<br/>"
     if animal_type:
-       output +=f"Type: {animal_type}\n"
+       output +=f"Type: {animal_type}<br/>"
+    output += '</li>'
 
 template = template.replace("__REPLACE_ANIMALS_INFO__", output)
 if write_template(template):
