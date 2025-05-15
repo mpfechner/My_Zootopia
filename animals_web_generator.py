@@ -26,13 +26,13 @@ for entry in animals:
 
     output += '<li class="cards__item">'
     if name:
-       output +=f"Name: {name}<br/>"
+       output +=f'<div class="card__title">{name}</div>'
     if diet:
-       output +=f"Diet: {diet}<br/>"
+       output +=f"<strong>Diet:</strong>: {diet}<br/>"
     if locations and len(locations) > 0:
-       output +=f"Location: {locations[0]}<br/>"
+       output +=f"<strong>Location:</strong>: {locations[0]}<br/>"
     if animal_type:
-       output +=f"Type: {animal_type}<br/>"
+       output +=f"<strong>Type:</strong>: {animal_type}<br/>"
     output += '</li>'
 
 template = template.replace("__REPLACE_ANIMALS_INFO__", output)
