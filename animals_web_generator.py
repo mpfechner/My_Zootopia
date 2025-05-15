@@ -5,7 +5,14 @@ def load_data(file_path):
   with open(file_path, "r") as handle:
     return json.load(handle)
 
+def load_template(file_path):
+  """ Loads a HTML file """
+  with open(file_path, "r") as handle:
+    return handle.read()
+
 animals = load_data('animals_data.json')
+template = load_template('animals_template.html')
+output = ''
 for entry in animals:
     name = entry.get("name")
     diet = entry.get("characteristics", {}).get("diet")
