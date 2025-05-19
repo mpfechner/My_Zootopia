@@ -17,16 +17,21 @@ def serialize_animal(animal):
     diet = animal.get("characteristics", {}).get("diet")
     locations = animal.get("locations")
     animal_type = animal.get("characteristics", {}).get("type")
+    distinctive_feature = animal.get("characteristics", {}).get("distinctive_feature")
 
     animal_data += '<li class="cards__item">'
     if name:
         animal_data += f'<div class="card__title">{name}</div>'
+    animal_data += '<ul>'
     if diet:
-        animal_data += f"<strong>Diet:</strong>: {diet}<br/>"
+        animal_data += f'<p class="card__text"><li><strong>Diet:</strong>: {diet}</li></p>'
     if locations and len(locations) > 0:
-        animal_data += f"<strong>Location:</strong>: {locations[0]}<br/>"
+        animal_data += f'<p class="card__text"><li><strong>Location:</strong>: {locations[0]}</li></p>'
     if animal_type:
-        animal_data += f"<strong>Type:</strong>: {animal_type}<br/>"
+        animal_data += f'<p class="card__text"><li><strong>Type:</strong>: {animal_type}</li></p>'
+    if distinctive_feature:
+        animal_data += f'<p class="card__text"><li><strong>Distinctive feature:</strong>: {distinctive_feature}</li></p>'
+    animal_data += '</ul>'
     animal_data += '</li>'
 
     return fix_encoding_issues(animal_data)
